@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'userStore';
+  showDashboard = false;
+
+  toggleShowDashboard() {
+    this.showDashboard = !this.showDashboard;
+  }
 }
