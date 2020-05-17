@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User as UserInfo } from './user';
-import { tap, catchError, map } from 'rxjs/operators';
+import { UserInfo } from './user';
+import { tap, catchError, map, shareReplay } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
 
 @Injectable({
@@ -10,10 +10,10 @@ import { throwError, Observable } from 'rxjs';
 export class UserService {
   private host = 'http://localhost:51256/api/users';
 
-
   users$ = this.http.get<UserInfo[]>(this.host)
     .pipe(
       tap(data => console.log('Users: ', JSON.stringify(data))),
+      shareReplay(1),
       catchError(this.handleError)
     )
 
@@ -22,8 +22,19 @@ export class UserService {
           .pipe(
             tap(data => console.log('createUser: ' + JSON.stringify(data))),
             catchError(this.handleError)
-          );
+          );    
   }    
+
+  getUserById (id: Number): Observable<UserInfo> {
+    if (id !== 0) {
+      const url = `${this.host}/${id}`;
+      return this.http.get<UserInfo>(url)
+        .pipe(
+          tap(data => console.log('getUser: ' + JSON.stringify(data))),
+          catchError(this.handleError)
+        )
+    }
+  }
 
     // updateUser(product: UserInfo): Observable<UserInfo> {
     //   const url = `${this.host}/${usr.userId}`;

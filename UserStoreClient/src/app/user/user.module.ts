@@ -37,6 +37,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
       {
         path: ':add',
         component: AddUserComponent
+      },
+      {
+        path: ':id/edit',
+        component: AddUserComponent
       }
     ])
   ],

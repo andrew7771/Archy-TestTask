@@ -32,7 +32,7 @@
 
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let user"> <button [routerLink]="['/users/add']"
+      <td mat-cell *matCellDef="let user"> <button [routerLink]="['/users', user.id, 'edit']"
         routerLinkActive="active">Edit</button></td>
     </ng-container>
   

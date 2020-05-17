@@ -24,7 +24,13 @@ namespace UserStore.Web.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserInfo>>> Get()
         {
-            return   Ok(await _service.GetAllUsersAsync());
+            return Ok(await _service.GetAllUsersAsync());
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserInfo>> Get(int id)
+        {
+            return Ok(await _service.GetUserById(id));
         }
 
         [HttpPost]
