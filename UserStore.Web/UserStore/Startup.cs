@@ -25,6 +25,7 @@ namespace UserStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
             services.AddProjectConfiguration();
         }
 
@@ -37,7 +38,7 @@ namespace UserStore
             }
 
             app.UseRouting();
-
+            app.UseCors(builder => builder.AllowAnyOrigin());
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
