@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { UserInfo } from '../user';
+import { User } from '../user';
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class AddUserComponent implements OnInit, OnDestroy {
   userForm: FormGroup;
   sub: Subscription;
-  user: UserInfo;
+  user: User;
   isEditMode = false;
   pageTitle = 'Create User';
   floatLabelControl = new FormControl('auto');
@@ -79,10 +79,10 @@ export class AddUserComponent implements OnInit, OnDestroy {
       if (this.isEditMode) {
           usr = {...this.user, ...this.userForm.value};
           if (usr.id && usr.id !== 0) {
-            // this.userService.updateUser(this.userForm.value)
-            // .subscribe({
-            //   next: () => this.onSaveComplete(),
-            // });
+            this.userService.updateUser(usr)
+            .subscribe({
+              next: () => this.onSaveComplete(),
+            });
           }
         } else {
           this.userService.addUser(this.userForm.value)

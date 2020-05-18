@@ -22,19 +22,19 @@ namespace UserStore.Web.Controllers
             _linkGenerator = linkGenerator;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserInfo>>> Get()
+        public async Task<ActionResult<IEnumerable<User>>> Get()
         {
             return Ok(await _service.GetAllUsersAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserInfo>> Get(int id)
+        public async Task<ActionResult<User>> Get(int id)
         {
             return Ok(await _service.GetUserById(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserInfo>> Post(UserInfo user)
+        public async Task<ActionResult<User>> Post(User user)
         {
             try
             {
@@ -65,5 +65,29 @@ namespace UserStore.Web.Controllers
             return BadRequest();
         }
 
+        [HttpPut("{id}")]
+        public async Task<ActionResult<User>> Put(User user)
+        {
+            try
+            {
+                //var oldUser = await _service.GetUserById(user.Id);
+                //if (oldUser == null)
+                //    return NotFound($"Could not find user with id of {user.Id}");
+
+
+                var updatedUser = await _service.UpdateAsync(user);
+                if (updatedUser != null)
+                {
+                    return updatedUser;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong on the server");
+            }
+
+            return BadRequest();
+        }
     }
 }

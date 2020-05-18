@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace UserStore.Models
 {
-    public class UserInfo
+    [Table("UserInfo")]
+    public class User
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

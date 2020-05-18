@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserStore.Web", "UserStore\UserStore.Web.csproj", "{73C44B14-05AF-428A-923D-6827E0878544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserStore.Web", "UserStore\UserStore.Web.csproj", "{73C44B14-05AF-428A-923D-6827E0878544}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserStore.Models", "UserStore.Models\UserStore.Models.csproj", "{1BADCA62-CB20-4ADE-9CC4-10FD2DDEA951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserStore.Models", "UserStore.Models\UserStore.Models.csproj", "{1BADCA62-CB20-4ADE-9CC4-10FD2DDEA951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserStore.Data", "UserStore.Data\UserStore.Data.csproj", "{7C8D72B6-1747-4791-A89A-37984E82CE5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserStore.Data", "UserStore.Data\UserStore.Data.csproj", "{7C8D72B6-1747-4791-A89A-37984E82CE5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserStore.Services", "UserStore.Services\UserStore.Services.csproj", "{4B4F85B2-FA84-4247-9A0C-9278AD85F610}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserStore.Services", "UserStore.Services\UserStore.Services.csproj", "{4B4F85B2-FA84-4247-9A0C-9278AD85F610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserStore.Infrastructure", "UserStore.Infrastructure\UserStore.Infrastructure.csproj", "{E4F3CF85-698A-48FC-BC0B-03BA86D22E62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserStore.Infrastructure", "UserStore.Infrastructure\UserStore.Infrastructure.csproj", "{E4F3CF85-698A-48FC-BC0B-03BA86D22E62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

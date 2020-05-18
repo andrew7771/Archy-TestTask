@@ -19,23 +19,28 @@ namespace UserStore.Services
             _db = db;
         }
 
-        public async Task<UserInfo> CreateAsync(UserInfo user)
+        public async Task<User> CreateAsync(User user)
         {
             _db.UserInfo.Add(user);
             await _db.SaveChangesAsync();
             return user; 
         }
 
-        public async Task<IEnumerable<UserInfo>> GetAllUsersAsync()
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
             return await _db.UserInfo.ToListAsync();
         }
 
-        public async Task<UserInfo> GetUserById(int id)
+        public async Task<User> GetUserById(int id)
         {
             return await _db.UserInfo.SingleOrDefaultAsync(user => user.Id == id);
         }
 
-
+        public async Task<User> UpdateAsync(User user)
+        {
+            _db.Entry(user).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+            return user;
+        }
     }
 }

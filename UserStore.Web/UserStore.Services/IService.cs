@@ -7,9 +7,10 @@ namespace UserStore.Services
 {
     public interface IService
     {
-        Task<IEnumerable<UserInfo>> GetAllUsersAsync();
-        Task<UserInfo> GetUserById(int id);
-        Task<UserInfo> CreateAsync(UserInfo user);
+        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<User> GetUserById(int id);
+        Task<User> CreateAsync(User user);
+        Task<User> UpdateAsync(User user);
 
     }
 }

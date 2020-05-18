@@ -25,7 +25,7 @@ namespace UserStore.Data
             Database.EnsureCreated();
         }
 
-        public virtual DbSet<UserInfo> UserInfo { get; set; }
+        public virtual DbSet<User> UserInfo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,7 +36,7 @@ namespace UserStore.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<UserInfo>(entity => entity.HasData(new UserInfo
+            modelBuilder.Entity<User>(entity => entity.HasData(new User
             {
                 Id = 1,
                 BirthDate = new DateTime(1996, 5, 8),
